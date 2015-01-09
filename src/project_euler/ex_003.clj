@@ -7,18 +7,6 @@
 
 ;; TODO Cache prime numbers in a lazy infinite seq.
 
-(defn find-largest-factor
-  "Find largest factor of n."
-  [n]
-  (first (for [divisor (iterate dec (math/floor (/ n 2)))
-               :when (or (= divisor 0)
-                         (= divisor 1)
-                         (zero? (mod n divisor)))]
-           (if (or (= divisor 1)
-                   (= divisor 0))
-             n
-             divisor))))
-
 (defn find-smallest-factor
   "Find smallest factor of n."
   [n]
@@ -36,7 +24,7 @@
     nil))
 
 (defn find-largest-prime-factor [n]
-  (first (for [i (iterate dec (math/floor #_(/ n 2) (math/sqrt n)))
+  (first (for [i (iterate dec (math/floor (math/sqrt n)))
                :when (and (== (mod n i) 0)
                           (or (is-prime? i)
                               (== i 1)))]
