@@ -23,7 +23,7 @@
     n
     nil))
 
-(defn find-largest-prime-factor [n]
+(defn largest-prime-factor [n]
   (first (for [i (iterate dec (math/floor (math/sqrt n)))
                :when (and (== (mod n i) 0)
                           (or (is-prime? i)
