@@ -61,7 +61,7 @@
   "Returns a vector of products of every adjacent 13 numbers."
   [int-seq]
   (if (< (count int-seq) 13) []
-      (conj (greatest-13-prod (rest int-seq))
+      (conj (thirteen-prod (rest int-seq))
             (apply * (take 13 int-seq)))))
 
 ;; (apply max (thirteen-prod int-list))
