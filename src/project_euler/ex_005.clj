@@ -8,7 +8,7 @@
 ;; What is the smallest positive number that is evenly divisible by all of the
 ;; numbers from 1 to 20?
 
-;; Use union.
+;; Maybe do this with reduce?
 
 (defn is-divisible-by?
   "True if any number in set can evenly divide n."
