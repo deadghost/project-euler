@@ -9,7 +9,7 @@
 (def fib-seq
   "Lazy infinite fib sequence using corecursion.
   Realize using the take function."
-  (lazy-cat [1 2] (map + fib-seq (rest fib-seq))))
+  (lazy-cat [1 1] (map +' fib-seq (rest fib-seq))))
 
 (->> (take-while #(<= % 4000000) fib-seq)
      (filter even?)
