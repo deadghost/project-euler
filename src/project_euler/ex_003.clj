@@ -24,7 +24,7 @@
     nil))
 
 (defn largest-prime-factor [n]
-  (first (for [i (iterate dec (math/floor (math/sqrt n)))
+  (first (for [i (iterate dec (int (math/floor (math/sqrt n))))
                :when (and (== (mod n i) 0)
                           (or (is-prime? i)
                               (== i 1)))]
