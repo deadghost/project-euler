@@ -76,8 +76,3 @@
   (filter nonabundant-sum? (take 28123 (iterate inc 1))))
 
 (reduce +' nonabundant-sums)
-
-(->> (remove (set (map sum-of-two-abundant-numbers?
-                       (take 28123 (iterate inc 1))))
-             (set (take 28123 (iterate inc 1))))
-     (reduce +'))
