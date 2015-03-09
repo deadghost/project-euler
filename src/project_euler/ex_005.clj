@@ -16,9 +16,15 @@
   (some #(= (mod n %) 0)
         set))
 
+(defn numbers-under-sqrt
+  "All numbers in coll under the square root of n inclusive."
+  [n coll]
+  (take-while #(<= (* % %) n) coll))
+
 (def primes
   "Lazy memoized infinite lazy seq of prime numbers."
-  (lazy-cat [2] (remove #(is-divisible-by? % primes) 
+  (lazy-cat [2]
+            (remove #(is-divisible-by? % (cons 2 (numbers-under-sqrt % primes))) 
                         (iterate inc (last primes)))))
 
 (defn factorize
