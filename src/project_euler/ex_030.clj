@@ -1,5 +1,6 @@
 (ns project-euler.ex-030
-  (:require [clojure.math.numeric-tower :refer [expt]]))
+  (:require [clojure.math.numeric-tower :refer [expt]]
+            [project-euler.util :refer [digits]]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Surprisingly there are only three numbers that can be written as the sum of
@@ -31,11 +32,6 @@
 
 (def possible-numbers
   (range 10 999999))
-
-(defn digits
-  "Given an integer, returns a list of digits."
-  [n]
-  (->> n str (map (comp read-string str))))
 
 (defn fifth-power-sum [n]
   (apply + (map #(expt % 5) (digits n))))

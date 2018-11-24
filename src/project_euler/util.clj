@@ -10,3 +10,8 @@
      (if (pred (first s))
        (cons (first s) nil)
        (cons (first s) (take-until pred (rest s)))))))
+
+(defn digits
+  "Given an integer, returns a list of digits."
+  [n]
+  (->> n str (map (comp read-string str))))
