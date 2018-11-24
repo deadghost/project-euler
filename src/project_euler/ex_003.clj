@@ -19,7 +19,8 @@
 
 (defn is-prime?
   [n]
-  (if (= (find-smallest-factor n) n)
+  (if (and (> n 1)
+           (= (find-smallest-factor n) n))
     n
     nil))
 
