@@ -15,3 +15,13 @@
   "Given an integer, returns a list of digits."
   [n]
   (->> n str (map (comp read-string str))))
+
+(defn remove-first
+  "Returns seq with the first element that fulfills the predicate removed."
+  [pred s]
+  (if (pred (first s))
+    (rest s)
+    (let [[a b] (split-with (comp not pred) s)]
+      (if (empty? a)
+        s
+        (concat a (rest b))))))
