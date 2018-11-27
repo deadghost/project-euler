@@ -25,3 +25,6 @@
       (if (empty? a)
         s
         (concat a (rest b))))))
+
+(defn factorial [n]
+  (reduce * (take n (iterate inc 1))))
