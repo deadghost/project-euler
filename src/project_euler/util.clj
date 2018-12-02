@@ -28,3 +28,7 @@
 
 (defn factorial [n]
   (reduce * (take n (iterate inc 1))))
+
+(defn palindrome? [n]
+  (= (reverse (digits n))
+     (digits n)))
