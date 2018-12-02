@@ -1,4 +1,6 @@
-(ns project-euler.util)
+(ns project-euler.util
+  (:require [project-euler.ex-005 :refer [is-divisible-by?
+                                          numbers-under-sqrt]]))
 
 (defn take-until
   "Returns a lazy sequence of successive items from coll until
@@ -32,3 +34,13 @@
 (defn palindrome? [n]
   (= (reverse (digits n))
      (digits n)))
+
+(def primes
+  "Lazy memoized infinite lazy seq of prime numbers."
+  (lazy-cat [2]
+            (remove #(is-divisible-by? % (cons 2 (numbers-under-sqrt % primes))) 
+                    (iterate inc (last primes)))))
+
+(defn prime? [n]
+  (= (first (drop-while #(< % n) primes))
+     n))
