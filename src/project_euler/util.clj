@@ -44,3 +44,8 @@
 (defn prime? [n]
   (= (first (drop-while #(< % n) primes))
      n))
+
+(defn char->int
+  "Converts character to integer."
+  [char]
+  (Character/digit char 10))
