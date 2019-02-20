@@ -1,7 +1,7 @@
 (ns project-euler.ex-010
   (:require
    [clojure.math.numeric-tower :as math]
-   [project-euler.ex-005 :refer [primes]]))
+   [project-euler.ex-007 :refer [primes]]))
 
 ;; The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 ;; Find the sum of all the primes below two million.

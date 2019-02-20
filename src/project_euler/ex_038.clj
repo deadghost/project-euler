@@ -1,5 +1,5 @@
 (ns project-euler.ex-038
-  (:require [project-euler.util :refer [digits]]))
+  (:require [project-euler.util :refer [digits pandigital?]]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Pandigital multiples
@@ -28,12 +28,6 @@
 
 (def biggest-possible-i
   (/ 100000 2))
-
-(defn pandigital? [i]
-  (when (and (not (contains? (into #{} (digits i)) 0))
-             (= (count (into #{} (digits i)))
-                9))
-    i))
 
 (defn pandigital-multiple? [i]
   (let [concat-val (->> (map (partial * i)
