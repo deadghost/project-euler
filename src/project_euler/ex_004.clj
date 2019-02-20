@@ -37,6 +37,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defn palindrome? [n]
-  (= (str n) (str/reverse n)))
+  (= (str n) (str/reverse (str n))))
 
-;; I'll leave this as an exercise for another time.
+(defn solution-2
+  "`for` always feels kind of gross to me but it works very well here."
+  []
+  (->> (for [x (range 100 1000)
+             y (range 100 1000)
+             :let [xy (* x y)]
+             :when (palindrome? xy)]
+         xy)
+       (apply max)))

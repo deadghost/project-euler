@@ -5,4 +5,5 @@
 (deftest largest-palindrome
   (testing "Solution."
     (is (= (sut/largest-palindrome)
+           (sut/solution-2)
            906609))))
