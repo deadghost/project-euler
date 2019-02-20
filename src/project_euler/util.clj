@@ -1,5 +1,5 @@
 (ns project-euler.util
-  (:require [project-euler.ex-005 :refer [is-divisible-by?
+  (:require [project-euler.ex-007 :refer [is-divisible-by?
                                           numbers-under-sqrt]]))
 
 (defn take-until
@@ -49,3 +49,9 @@
   "Converts character to integer."
   [char]
   (Character/digit char 10))
+
+(defn pandigital? [i]
+  (when (and (not (contains? (into #{} (digits i)) 0))
+             (= (count (into #{} (digits i)))
+                9))
+    i))
