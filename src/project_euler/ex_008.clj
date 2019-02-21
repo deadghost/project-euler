@@ -33,8 +33,20 @@
 ;; greatest product. What is the value of this product?
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defn char-to-int [char]
-  (- (int char) (int \0)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Solution 1: Bruteforce
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; The square block shape of the integer suggests that the adjacent numbers can
+;; be horizontal, vertical, and diagonal. The problem statement makes no mention
+;; of the shape and the problem is really asking for digits in the integer that
+;; are next to each other (left and right).
+;; 
+;; Time complexity: O(n)
+;;   We visit every digit once.
+;; Space complexity: O(n)
+;;   We store the sum for every digit location. We can reduce this to O(1) if
+;;   we only store the the max product as we read the digits.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (def num-block
   (str
@@ -58,6 +70,9 @@
    "84580156166097919133875499200524063689912560717606"
    "05886116467109405077541002256983155200055935729725"
    "71636269561882670428252483600823257530420752963450"))
+
+(defn char-to-int [char]
+  (- (int char) (int \0)))
 
 (def int-list (map char-to-int num-block))
 
