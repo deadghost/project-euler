@@ -1,6 +1,19 @@
 (ns project-euler.ex-011
-  (:require
-   [clojure.string :as str]))
+  (:require [clojure.string :as str]))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Largest product in a grid
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; What is the greatest product of four adjacent numbers in the same direction
+;; (up, down, left, right, or diagonally) in the 20×20 grid?
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Solution
+;;==============================================================================
+;; Time complexity: O()
+;; Space complexity: O()
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (def grid
   "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
@@ -26,11 +39,8 @@
 
 (def parsed-grid
   "Parsed grid."
-  (->> (str/split grid #"\n ")
-       (apply str)
-       (#(str/split % #" "))
-       (map #(int (bigint %)))
-       (into [])))
+  (->> (str/split grid #"\s+")
+       (mapv #(Integer/parseInt %))))
 
 (defn down-right-diagonals
   "Returns vector of multiplying 4 in direction of down, right, and both
