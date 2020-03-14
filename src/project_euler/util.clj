@@ -50,8 +50,10 @@
   [char]
   (Character/digit char 10))
 
-(defn pandigital? [i]
-  (when (and (not (contains? (into #{} (digits i)) 0))
-             (= (count (into #{} (digits i)))
-                9))
-    i))
+(defn pandigital?
+  "Takes an integer x and returns x when x is pandigital."
+  [x]
+  (let [digit-count (count (str x))
+        digit-set (set (digits x))]
+    (= digit-set
+       (set (range 1 (inc digit-count))))))
