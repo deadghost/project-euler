@@ -57,3 +57,12 @@
         digit-set (set (digits x))]
     (= digit-set
        (set (range 1 (inc digit-count))))))
+
+(defn zero-pandigital?
+  "Takes an integer x and returns x when x is pandigital. Same as pandigital?
+  but includes 0."
+  [x]
+  (let [digit-count (count (str x))
+        digit-set (set (digits x))]
+    (= digit-set
+       (set (range 0 digit-count)))))
