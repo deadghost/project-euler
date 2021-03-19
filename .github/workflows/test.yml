@@ -1,7 +1,11 @@
 name: Test
 
 on:
-  push
+  # push
+  workflow_run:
+    workflows: ["Deps"]
+    types:
+      - completed
 
 jobs:
   build:
