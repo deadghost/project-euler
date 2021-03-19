@@ -1,11 +1,9 @@
 name: Test
 
 on:
-  # push
   workflow_run:
     workflows: ["Deps"]
-    types:
-      - completed
+    types: [completed]
 
 jobs:
   build:
