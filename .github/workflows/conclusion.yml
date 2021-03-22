@@ -1,0 +1,14 @@
+name: Conclusion
+
+on: 
+  workflow_run:
+    workflows: ["Test"]
+    types:
+      - completed
+jobs:
+  deps:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install deps
+      run: lein deps
