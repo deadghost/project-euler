@@ -1,0 +1,18 @@
+name: After Test
+
+on: 
+  workflow_run:
+    workflows:
+      - Test
+    types:
+      - completed
+jobs:
+  deps:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.workflow_run.head_branch }}
+    - run: git branch
+    - name: Install deps
+      run: echo "::warning file=.gitignore,line=1,col=5::Missing semicolon"
