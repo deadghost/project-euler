@@ -16,3 +16,4 @@ jobs:
     - run: git branch
     - name: Install deps
       run: echo "::warning file=.gitignore,line=1,col=5::Missing semicolon"
+
