@@ -1,4 +1,4 @@
-name: Conclusion
+name: After Test
 
 on: 
   workflow_run:
