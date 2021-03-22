@@ -12,4 +12,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install deps
-      run: echo "::debug::Set the Octocat variable"
+      run: echo "::warning file=.gitignore,line=1,col=5::Missing semicolon"
