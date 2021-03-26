@@ -7,7 +7,7 @@ on:
 
 jobs:
   release:
-    # if: ${{ github.ref != 'refs/heads/master' }}
+    if: ${{ github.ref != 'refs/heads/action-merge' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
