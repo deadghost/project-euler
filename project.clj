@@ -6,4 +6,12 @@
                  [org.clojure/algo.generic "0.1.3"]
                  [net.mikera/core.matrix "0.32.1"]]
   :profiles {}
-  :local-repo-classpath true)
+  :local-repo-classpath true
+  :release-tasks [["vcs" "assert-committed"]
+                  ["change" "version" "leiningen.release/bump-version" "release"]
+                  ["vcs" "commit"]
+                  ["vcs" "tag" "--no-sign"]
+                  ["deploy"]
+                  ["change" "version" "leiningen.release/bump-version"]
+                  ["vcs" "commit"]
+                  ["vcs" "push"]])
