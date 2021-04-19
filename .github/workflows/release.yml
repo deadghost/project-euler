@@ -17,9 +17,9 @@ jobs:
         # https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
       - name: Release
         run: |
-          # git config user.name github-actions
-          # git config user.email github-actions@github.com
-          git config user.name deadghost-bot
-          git config user.email kliu@symplr.com
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          # git config user.name deadghost-bot
+          # git config user.email kliu@symplr.com
           lein release :patch
 
