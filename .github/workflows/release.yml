@@ -19,7 +19,7 @@ jobs:
         run: |
           # git config user.name github-actions
           # git config user.email github-actions@github.com
-          git config user.name deadghost
-          git config user.email kennyoliu@gmail.com
+          git config user.name deadghost-bot
+          git config user.email kliu@symplr.com
           lein release :patch
 
