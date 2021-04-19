@@ -7,7 +7,7 @@ on:
 
 jobs:
   release:
-    if: ${{ github.actor != "github-actions" }}
+    if: ${{ github.actor != 'github-actions' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
