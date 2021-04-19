@@ -11,13 +11,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          ssh-key: ${{ secrets.DEPLOY_SECRET_KEY }} 
 
         # https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
         # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#example-using-contexts
       - name: Release
         if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          # git config user.name github-actions
+          # git config user.email github-actions@github.com
+          git config user.name deadghost
+          git config user.email kennyoliu@gmail.com
           lein release :patch
 
