@@ -1,13 +1,17 @@
 name: Release
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
       - action-merge
+  # push:
+  #   branches:
+  #     - action-merge
 
 jobs:
   release:
-    if: ${{ github.actor != 'github-actions' }}
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,7 +22,6 @@ jobs:
         # https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
       - name: Release
         run: |
-          echo "GITHUB_ACTOR: ${GITHUB_ACTOR}"
           git config user.name github-actions
           git config user.email github-actions@github.com
           lein release :patch
