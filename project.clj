@@ -1,4 +1,4 @@
-(defproject project-euler "0.1.64"
+(defproject project-euler "0.1.65-SNAPSHOT"
   :description "Solving project euler in clojure."
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [org.clojure/math.numeric-tower "0.0.4"]
